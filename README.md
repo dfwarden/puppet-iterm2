@@ -45,10 +45,14 @@ like so:
 include iterm2::customconfig
 
 # Custom config location - season configdir to taste
-iterm2::customconfig { 'enable iterm2 custom config dir':
+class { 'iterm2::customconfig':
   configdir => "/Users/${::boxen_user}/src/dotfiles/.iterm2",
 }
 ```
+
+This feature is still a work in progress. I'm not sure if it should manage the
+custom directory as a File resource or leave that to the user and have them
+notify this class.
 
 #### Colors
 
