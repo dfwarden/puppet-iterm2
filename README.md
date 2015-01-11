@@ -50,9 +50,10 @@ class { 'iterm2::customconfig':
 }
 ```
 
-This feature is still a work in progress. I'm not sure if it should manage the
-custom directory as a File resource or leave that to the user and have them
-notify this class.
+This feature is still a work in progress. Known issues:
+- iTerm2 will throw an error if you start it configured to load preferences from
+a directory that does not exist.
+
 
 #### Colors
 
