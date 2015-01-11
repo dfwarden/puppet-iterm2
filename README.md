@@ -27,6 +27,29 @@ include iterm2::dev
 
 Configuring iTerm2 has never been easier.
 
+#### Custom Config
+
+iTerm2 Profiles are somewhat difficult to manage programatically, as they are
+stored as a monolithic hash in com.googlecode.iterm2 at key "New Bookmarks".
+
+One suggestion (from https://github.com/boxen/puppet-iterm2/issues/13) is
+to enable iTerm2's custom configuartion directory option and store one's
+profiles in a custom com.googlecode.iterm2.plist managed by your dotfiles
+manager of choice.
+
+You can enable this behavior by including or instantiating iterm2::customconfig
+like so:
+
+```puppet
+# Default customconfig location
+include iterm2::customconfig
+
+# Custom config location - season configdir to taste
+iterm2::customconfig { 'enable iterm2 custom config dir':
+  configdir => "/Users/${::boxen_user}/src/dotfiles/.iterm2",
+}
+```
+
 #### Colors
 
 This module merely includes the ability to import colorschemes. In order to
